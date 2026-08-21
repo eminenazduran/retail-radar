@@ -2,7 +2,7 @@
 
 Customer & product intelligence from raw e-commerce transaction data — built as a data science portfolio project using the [UCI Online Retail Dataset](https://archive.ics.uci.edu/dataset/352/online+retail) (541,909 transactions).
 
-> **Status: 🚧 In Progress** — Data cleaning, EDA, visualization, feature engineering, RFM analysis, and customer segmentation are complete. The interactive dashboard is currently in development.
+> **Status: ✅ Complete** — Data cleaning, EDA, visualization, feature engineering, RFM analysis, and customer segmentation are complete. The interactive dashboard is fully functional.
 
 ## 🎯 Goal
 
@@ -33,11 +33,11 @@ Turn raw retail transaction data into actionable customer and product insights:
 - [x] **Feature Engineering** — transaction-level data → customer-level features (Total Spending, Total Orders, Unique Products, Recency, Average Order Value)
 - [x] **RFM Analysis** — Recency, Frequency, Monetary quintile scoring per customer
 - [x] **Customer Segmentation (K-Means)** — unsupervised clustering into 4 behavioral segments
-- [ ] **Streamlit Dashboard** — interactive view of revenue, customer segments, sales trends, top products
+- [x] **Streamlit Dashboard** — interactive view of revenue, customer segments, sales trends, top products
 
 ## 🛠️ Tech Stack
 
-Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn · Streamlit · Jupyter
+Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn · Plotly · Streamlit · Jupyter
 
 ## 📁 Project Structure
 
@@ -52,8 +52,13 @@ retail-radar/
 │   ├── 03_eda.ipynb
 │   ├── 04_data_visualization.ipynb
 │   └── 05_feature_engineering.ipynb   # feature engineering, RFM, K-Means
-├── src/
-├── app/                                # Streamlit dashboard (planned)
+├── app/
+│   └── app.py                         # Streamlit dashboard
+├── assets/
+│   ├── dashboard_demo.webp            # Dashboard demo recording
+│   ├── dashboard_overview.png
+│   ├── dashboard_segments.png
+│   └── dashboard_products.png
 └── visualizations/
 ```
 
@@ -83,6 +88,23 @@ retail-radar/
 | High Value | 685 (16%) | 10 days | 14.0 | £8,290 |
 
 - **38% of customers fall into "At Risk"** — the single largest segment — highlighting a significant re-engagement opportunity for a retention campaign.
+
+## ▶️ Running the Dashboard
+
+```bash
+# 1. Clone the repo and activate your virtual environment
+python -m venv .venv
+.venv\Scripts\activate       # Windows
+source .venv/bin/activate    # macOS / Linux
+
+# 2. Install dependencies
+pip install streamlit plotly scikit-learn pandas openpyxl numpy
+
+# 3. Launch the dashboard (from the project root)
+streamlit run app/app.py
+```
+
+The dashboard opens automatically at `http://localhost:8501`.
 
 ## ▶️ Running the Notebooks
 
